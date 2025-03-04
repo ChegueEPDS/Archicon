@@ -1,0 +1,13 @@
+<div class="image-dialog-container" [ngClass]="{'full-screen': isFullScreen}">
+    <img [src]="data.imageUrl" alt="Nagyított kép">
+
+    <!-- Bezárás gomb -->
+    <button mat-icon-button class="close-button" (click)="closeDialog()">
+      <mat-icon>close</mat-icon>
+    </button>
+
+    <!-- Full screen gomb -->
+    <button mat-icon-button class="fullscreen-button" (click)="toggleFullScreen()">
+      <mat-icon>{{ isFullScreen ? 'fullscreen_exit' : 'fullscreen' }}</mat-icon>
+    </button>
+</div>

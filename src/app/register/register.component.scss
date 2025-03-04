@@ -1,0 +1,31 @@
+.register {
+    margin: auto;
+    margin-top: 50px;
+    max-width: 600px;
+}
+
+.mat-mdc-card-header{
+    justify-content: center;
+}
+
+.mat-mdc-card-actions{
+    justify-content: flex-end;
+}
+
+.image-wrapper img {
+    max-width: 200px;
+}
+
+.register-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px 16px; 
+  }
+  
+  .two-columns mat-form-field {
+    flex: 1 1 calc(50% - 16px); /* Két oszlop, egyenlő arányban */
+  }
+  
+  .full {
+    width: 100%;
+  }

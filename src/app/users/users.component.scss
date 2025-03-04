@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start;  
+    height: calc(100vh - 64px);  /* A teljes képernyő magassága - menü*/
+  }
+  
+  .table-container {
+    width: auto;
+    max-width: 1000px;  
+    margin: 20px auto; /* Középre igazít */
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  }
+  
+  table {
+    width: auto;  
+    border-collapse: collapse;
+  }
+  
+  th.mat-header-cell {
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  td.mat-cell {
+    text-align: left;
+  }
+  
+  .paginator {
+    border-top: solid 2px #964900;
+  }
+
+  .mat-mdc-header-row {
+    border-bottom: solid 2px #964900;
+  }
+
+  .actions-header {
+    text-align: right; /* Jobbra igazítja a fejléc szövegét */
+  }
+  
+  .actions-cell {
+    text-align: right; /* Jobbra igazítja az akciógombokat a cellákban */
+  }
+  
+  .search {
+    transform: scale(0.9);
+    margin-left: auto; /* Jobbra tolja a keresőt */
+    width: 200px;
+  }
+ 

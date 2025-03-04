@@ -1,0 +1,46 @@
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Két oszlop nagyobb kijelzőkön */
+  gap: 16px; /* Közötti távolság */
+
+  /* Egy oszlop kisebb kijelzőkön (max 768px) */
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr; /* Egy oszlop kis kijelzőkön */
+    gap: 8px; /* Kisebb távolság a mezők között */
+  }
+}
+
+.full-width {
+  grid-column: span 2; /* Két oszlop szélesség nagyobb kijelzőkön */
+
+  /* Egy oszlopos megjelenés kisebb kijelzőkön */
+  @media (max-width: 768px) {
+    grid-column: span 1; /* Egy oszlop szélesség kisebb kijelzőkön */
+  }
+}
+
+.half-width {
+  grid-column: span 1; /* Egy oszlop szélesség nagyobb kijelzőkön */
+
+  /* Egy oszlopos megjelenés kisebb kijelzőkön */
+  @media (max-width: 768px) {
+    grid-column: span 1; /* Egy oszlop szélesség kisebb kijelzőkön is */
+  }
+}
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 8px; /* Kicsit több hely az elemek között */
+  }
+  
+  @media (max-width: 768px) {
+    mat-form-field {
+      margin-bottom: 4px; /* Kevesebb hely mobilon */
+    }
+  }
+
+  .delete-all {
+    margin-top: 16px;
+    color: red !important;
+    text-decoration: underline;
+  }

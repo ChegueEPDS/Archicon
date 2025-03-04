@@ -1,0 +1,106 @@
+<div class="container">
+    
+    <h2>ExAI by EPDS Demo</h2>
+        <div class="demo">
+            <mat-card>
+                <mat-card-content>
+                   <p><strong>Az Archicon számára készített bemutató rendszer</strong> tesztelési célra készült. A lent felsorolt dokumentumokkal bővített AI modellt használja az alap konfigurációs beállításainkkal. A beállítások a felhasználási cél függvényében személyreszabhatók, így a kérdésfeltevés és a válaszok tartalma, részletessége és minősége finomítható.</p>
+                   <p>A saját dokumentumok ismerete és könnyű kereshetősége elősegíti a hatékonyabb napi munkavégzést és tervezést, míg a releváns jogszabályok ismerete és betartása biztosítja a jogszabályi megfelelést és a magas színvonalú szolgáltatást az egészségügyi szektorban.</p>
+                </mat-card-content>
+            </mat-card>
+            <mat-card class="img-card">
+                <mat-card-content>
+                    <img src="/public/clientlogo.png" alt=""> 
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <h2>AI Tools</h2>
+        <div class="tools">
+            <mat-card matRipple [routerLink]="['/assistant']">
+                    <mat-icon class="bigicon">chat</mat-icon>
+                    <h3>AI ASSZISZTENS</h3>
+            </mat-card>
+
+            <mat-card matRipple [routerLink]="['/xls']">
+                    <mat-icon class="bigicon">compare</mat-icon>
+                    <h3>XLSX TOOL</h3>
+            </mat-card>
+
+            <mat-card class="notool" matTooltip="Turn visionary tools into reality and unlock your full potential!" matTooltipShowDelay="100">
+                <mat-icon class="bigicon">more_horiz</mat-icon>
+                <h3>Dream Big</h3>
+        </mat-card>
+        </div>
+
+
+    <h2>Tudástár tartalma</h2>
+    <mat-accordion class="accordion">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>Saját dokumentumok</mat-panel-title>
+            </mat-expansion-panel-header>
+            <ul>
+                <li matTooltip="MOX_ART_KT_EP_KVT_ALT_921_R00_KOLTSEGVETES-KG.xlsx" matTooltipShowDelay="500">MOX_ART_KT_EP_KVT_ALT_921_R00_KÖLTSÉGVETÉS - S&C EP Építészet S&C - MÓDOSÍTOTT!!</li>
+                <li matTooltip="MOX_PER_KT_GP_MUL_ALT_001_R00_MUSZAKI_LEIRAS.pdf" matTooltipShowDelay="500">MOX_PER_KT_GP_MUL_ALT_001_R00_MŰSZAKI_LEÍRÁS.pdf</li>
+            </ul>
+        </mat-expansion-panel>
+    
+        <!--mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>2. sz. melléklet</mat-panel-title>
+            </mat-expansion-panel-header>
+            <ul>
+                <li matTooltip="_0_MF_2023_STAND__3.xlsm" matTooltipShowDelay="500">_0_MF_2023_STAND__3.xlsm</li>
+            </ul>
+        </mat-expansion-panel>
+    
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>3. sz. melléklet</mat-panel-title>
+            </mat-expansion-panel-header>
+            <ul>
+                <li matTooltip="Kodolt_koltsegvetes.xlsm" matTooltipShowDelay="500">Kódolt_költségvetés.xlsm</li>
+                <li matTooltip="Kod_minta.xls" matTooltipShowDelay="500">Kód_minta.xls</li>
+            </ul>
+        </mat-expansion-panel-->
+    
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>Jogszabályi környezet</mat-panel-title>
+            </mat-expansion-panel-header>
+            <ul>
+                <li matTooltip="LAMBDA_GEPESZ___EGYEDI_╡RAS_Stand__2024_02_01_HASZN╡LHATα.pdf" matTooltipShowDelay="500">LAMBDA_GÉPÉSZ_EGYEDI_ÁRAS_Stand_2024_02_01_HASZNÁLHATÓ.pdf</li>
+                <li matTooltip="Stand_98_Kft._Moxy_Hotel_41126.10.pdf" matTooltipShowDelay="500">Stand_98_Kft._Moxy_Hotel_41126.10.pdf</li>
+                <!--li matTooltip="calcDB_2023_mod_7.xlsm" matTooltipShowDelay="500">calcDB_2023_mód_7.xlsm</li>
+                <li matTooltip="FQ_arajanlat_Negyszog.xlsx" matTooltipShowDelay="500">FQ_árajánlat_Négyszög.xlsx</li>
+                <li matTooltip="KAOT_20241122_MOX_ART_KT_EP_KVT_ALT_921_R00_KOLTSEGVETES_alvallalkozo.xlsx" matTooltipShowDelay="500">KAOT_20241122_MOX_ART_KT_EP_KVT_ALT_921_R00_KÖLTSÉGVETÉS_alvállalkozó.xlsx</li>
+                <li matTooltip="MOXY_HOTEL_(BP.)_1_MAIL.xlsx" matTooltipShowDelay="500">MOXY_HOTEL_(BP.)_1_MAIL.xlsx</li>
+                <li matTooltip="va2407835_Moxy_Hotel_ART_KT_EP_KVT_ALT_921_R00.xlsx" matTooltipShowDelay="500">va2407835_Moxy_Hotel_ART_KT_EP_KVT_ALT_921_R00.xlsx</li-->
+            </ul>
+        </mat-expansion-panel>
+    
+        <!--mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>5. sz. melléklet</mat-panel-title>
+            </mat-expansion-panel-header>
+            <ul>
+                <li matTooltip="Budapest_moxy_zt_02.xlsm" matTooltipShowDelay="500">Budapest_moxy_zt_02.xlsm</li>
+            </ul>
+        </mat-expansion-panel-->
+    </mat-accordion>
+
+    <h2>Elérhetőség</h2>
+    <mat-card class="contactcard">
+        <mat-card-content>
+            <div class="contact">
+                <strong>Kapcsolattartó:&nbsp;</strong>Kovács Gergely <br>
+                <strong>Telefon:&nbsp;</strong>+36 30 664 4472 <br>
+                <strong>E-Mail:&nbsp;</strong>kovacs&#64;epds.hu <br>
+            </div>
+            <div class="epdslogo">
+                <img src="/public/logo.png" alt="">
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

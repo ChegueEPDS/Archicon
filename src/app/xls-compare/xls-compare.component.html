@@ -1,0 +1,95 @@
+<div class="container">
+    <h2>XLSX Compare Tool</h2>
+
+    <div class="grid-container">
+        <!-- Eredeti fájl feltöltése -->
+    <div class="grid-item"
+        matRipple 
+        [matRippleDisabled]="loading() || comparisonResult().length > 0"
+        [class.disabled]="loading() || comparisonResult().length > 0"
+        (click)="!loading() && comparisonResult().length === 0 && fileInput1.click()">
+    <input #fileInput1 type="file" (change)="onFileChange($event, 1)" accept=".xlsx" hidden /> 
+    <mat-icon class="bigicon">upload</mat-icon> 
+    <h3>Eredeti fájl</h3>
+    <p *ngIf="file1()">📄 {{ file1()?.name }}</p>
+    </div>
+
+    <!-- Új fájl feltöltése -->
+    <div class="grid-item" 
+        matRipple 
+        [matRippleDisabled]="loading() || comparisonResult().length > 0"
+        [class.disabled]="loading() || comparisonResult().length > 0"
+        (click)="!loading() && comparisonResult().length === 0 && fileInput2.click()">
+    <input #fileInput2 type="file" (change)="onFileChange($event, 2)" accept=".xlsx" hidden />
+    <mat-icon class="bigicon">upload</mat-icon> 
+    <h3>Új fájl</h3>
+    <p *ngIf="file2()">📄 {{ file2()?.name }}</p>
+    </div>
+
+    <!-- Azonosító oszlop kiválasztása -->
+    <div class="grid-item" [class.disabled]="loading() || comparisonResult().length > 0">
+    <h3 style="align-self: flex-start; margin-bottom: 8px;">Azonosító oszlop</h3>
+    <mat-form-field appearance="outline">
+        <mat-select [(ngModel)]="columnLetter" [disabled]="loading() || comparisonResult().length > 0">
+            <mat-option *ngFor="let letter of availableColumns" [value]="letter">
+                {{ letter }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    </div>
+
+    <!-- Összehasonlítás gomb -->
+    <div class="grid-item" 
+        matRipple 
+        [matRippleDisabled]="loading() || comparisonResult().length > 0"
+        [class.disabled]="loading() || comparisonResult().length > 0"
+        (click)="!loading() && comparisonResult().length === 0 && compareFiles()">
+    <mat-icon class="bigicon">compare</mat-icon> 
+    <h3>Összehasonlítás</h3>
+    </div>
+    </div>
+
+    <!--mat-divider *ngIf="responseReceived()"></mat-divider-->
+
+    <!-- Az összehasonlítás eredménye és AI elemzés oszlopai -->
+    <div class="summary-container">
+    
+        <!-- Spinner megjelenése animációval -->
+        <div class="spinner-container" *ngIf="loading()">
+            <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+        </div>
+    
+        <!-- Eredmények és AI elemzés csak ha van adat -->
+        <div class="result-container" [class.show]="!loading() && (comparisonResult().length > 0)"
+             *ngIf="!loading() && (comparisonResult().length > 0)">
+            <!-- Összehasonlítás eredménye -->
+            <div class="summary-column">
+                <h3>Összehasonlítás eredménye:</h3>
+                <p *ngFor="let change of sanitizedComparisonResult()" [innerHTML]="change"></p>
+            </div>
+    
+            <!-- Elválasztó vonal -->
+            <div class="divider"></div>
+    
+            <!-- AI Szöveges elemzés -->
+            <div class="download-column">
+                <h3>XLSX összefoglaló letöltése:</h3>
+                <button mat-icon-button class="xlsbutton" (click)="downloadXlsx()">
+                    <mat-icon class="custom-mat-icon">
+                        <img src="public/xlsx_icon.svg" alt="XLSX logo">
+                      </mat-icon>
+                </button>
+                <button mat-button (click)="newComparison()">
+                    <mat-icon>compare</mat-icon>
+                    Új összehasonlítás
+                  </button>
+            </div>
+        </div>
+    
+    </div>
+
+    <!-- Ha nincs eltérés -->
+    <div *ngIf="!loading() && responseReceived() && comparisonResult().length === 0">
+        <h3>✔️ Nincsenek különbségek.</h3>
+    </div>
+</div>

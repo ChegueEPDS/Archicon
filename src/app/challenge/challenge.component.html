@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>Challenge answer</h2>
+
+<div mat-dialog-content>
+  <!-- Utolsó kérdés -->
+  <div class="questionbox">
+    <div class="roleq">Felhasználó kérdése</div>
+    <div class="question"[innerHTML]="data.lastQuestion"> </div>
+  </div>
+
+  <!-- Utolsó válasz (innerHTML használatával) -->
+  <div class="answerbox">
+    <div class="rolea">Asszisztens válasza</div>
+  
+    <!-- A tartalom, amely összecsukható és kibontott -->
+    <div #answerContent class="answer" [ngClass]="{ 'collapsed': !isExpanded }" [style.maxHeight]="isExpanded ? contentHeight : '100px'" [innerHTML]="data.lastAnswer">
+    </div>
+  
+    <!-- Gomb az összecsukáshoz/kibontáshoz -->
+    <button mat-icon-button (click)="toggleExpand()">
+      <mat-icon [ngClass]="{ 'rotated': isExpanded }">chevron_right</mat-icon>
+    </button>
+  </div>
+
+  <!-- Észrevétel mező -->
+  <mat-form-field appearance="outline" class="full-width">
+    <textarea matInput [(ngModel)]="feedback" cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" placeholder="Ide írhatod az észrevételed..."></textarea>
+  </mat-form-field>
+
+  <!-- Referenciák mező -->
+  <mat-form-field appearance="outline" class="full-width">
+    <textarea matInput [(ngModel)]="references" cdkTextareaAutosize cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" placeholder="Hivatkozások, megjegyzések..."></textarea>
+  </mat-form-field>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-flat-button class="cancel_button" (click)="closeDialog()">Mégsem</button>
+  <button mat-flat-button (click)="submitChallenge()">Küldés</button>
+</div>

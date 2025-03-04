@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <!-- Email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> E-mail cím </th>
+        <td mat-cell *matCellDef="let user"> {{user.email}} </td>
+      </ng-container>
+
+      <!-- Username Column -->
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Felhasználónév </th>
+        <td mat-cell *matCellDef="let user"> {{user.username}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Név </th>
+        <td mat-cell *matCellDef="let user"> {{user.name}} </td>
+      </ng-container>
+
+       <!-- License Column -->
+      <ng-container matColumnDef="license">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Licensz </th>
+        <td mat-cell *matCellDef="let user"> {{user.license ? 'Aktív' : 'Inaktív'}} </td>
+      </ng-container>
+
+      <!-- Search Column (Actions) -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef class="actions-header"> <!-- Fejléc jobbra igazítása -->
+          <mat-form-field appearance="outline" class="search">
+            <input matInput placeholder="Keresés" [(ngModel)]="searchQuery" (keyup)="applyFilter($event)">
+            <button mat-icon-button matSuffix disabled="true">
+              <mat-icon>search</mat-icon>
+            </button>
+          </mat-form-field>
+        </th>
+        <td mat-cell *matCellDef="let user" class="actions-cell"> <!-- Akciógombok jobbra igazítása -->
+          <button mat-icon-button (click)="editUser(user)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button (click)="manageSubscription(user)">
+            <mat-icon>subscriptions</mat-icon>
+          </button>
+          <button mat-icon-button (click)="manageSubscription(user)">
+            <mat-icon>chat</mat-icon>
+          </button>
+          <button mat-icon-button (click)="deleteUser(user)" class="delete_button">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Header and Row Definitions -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <!-- Pagination Controls -->
+    <mat-paginator [pageSizeOptions]="[10, 25, 50]" showFirstLastButtons class="paginator"></mat-paginator>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<h2 mat-dialog-title>Felhasználói beállítások</h2>
+<mat-dialog-content>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <h3>Személyes adatok</h3>
+    <div formGroupName="personalData" class="form-grid"> <!-- Új formGroupName -->
+
+      <mat-form-field appearance="outline" class="full-width">
+        <input matInput placeholder="E-mail cím" formControlName="email" required>
+        <!-- Elvis operátor a biztonságos hozzáféréshez -->
+        <mat-error *ngIf="userForm.get('personalData.email')?.hasError('required')">
+          E-mail cím megadása kötelező.
+        </mat-error>
+        <mat-error *ngIf="userForm.get('personalData.email')?.hasError('email')">
+          Érvénytelen e-mail cím.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="half-width">
+        <input matInput placeholder="Keresztnév" formControlName="firstName">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="half-width">
+        <input matInput placeholder="Vezetéknév" formControlName="lastName">
+      </mat-form-field>
+
+    </div>
+
+    <h3>Számlázási adatok</h3>
+    <div formGroupName="billingData" class="form-grid"> <!-- Új formGroupName -->
+      <mat-form-field appearance="outline" class="full-width">
+        <input matInput placeholder="Számlázási név" formControlName="billingName">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="half-width">
+        <input matInput placeholder="Irányítószám" formControlName="postalCode">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="half-width">
+        <input matInput placeholder="Város" formControlName="city">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <input matInput placeholder="Cím" formControlName="address">
+      </mat-form-field>
+    </div>
+    <button mat-button (click)="deleteData(userForm.value)" class="delete-all">Minden adatom törlése</button>  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-flat-button mat-dialog-close class="cancel_button">Mégsem</button>
+  <button mat-flat-button color="primary" [disabled]="userForm.invalid" (click)="onSubmit()">Mentés</button>
+</mat-dialog-actions>
